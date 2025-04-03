@@ -74,11 +74,11 @@ function update_challenges_power() {
     // population slows down time
     adj_time_passed /= power_population_time().toInt();
 
-    player.challenge_strength_7 = new BigNumber(3);
+    player.challenge_strength_7 = new BigNumber(1);
 
     player.challenge_strength_8 = 100;
 
-    player.challenge_strength_9 = 2;
+    player.challenge_strength_9 = 1;
 
     player.challenge_strength_10 = 0.5;
 
