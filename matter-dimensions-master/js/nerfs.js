@@ -26,7 +26,7 @@ function update_challenges_power() {
     // "Quantum Entanglement" experiment: higher dimensions are slower
     if (player.evolutions['b12'].is_active()) player.challenge_strength_3 = player.challenge_strength_3.mult(player.experiments['quantum_entanglement'].get_nerf());
 
-    player.challenge_strength_4 = new BigNumber(1e10);
+    player.challenge_strength_4 = new BigNumber(1e300);
     // achievement 42: you can store 2 times more resources
     if (player.achievements['42'].complete) player.challenge_strength_4 = player.challenge_strength_4.mult(2);
     // achievement 91: you can store 1e10 times more resources
@@ -75,7 +75,6 @@ function update_challenges_power() {
     adj_time_passed /= power_population_time().toInt();
 
     player.challenge_strength_7 = new BigNumber(3);
-    player.challenge_strength_7 = player.challenge_strength_7.pow(Math.pow((adj_time_passed / 1000) + 1, 0.5) * Math.pow(2, adj_time_passed / 60000) - 1);
 
     player.challenge_strength_8 = 100;
 
