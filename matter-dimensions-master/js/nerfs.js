@@ -76,11 +76,11 @@ function update_challenges_power() {
 
     player.challenge_strength_7 = new BigNumber(1);
 
-    player.challenge_strength_8 = 100;
+    player.challenge_strength_8 = 1e10;
 
     player.challenge_strength_9 = 1;
 
-    player.challenge_strength_10 = 0.5;
+    player.challenge_strength_10 = 1;
 
     player.challenge_strength_11 = 0.5;
 }
