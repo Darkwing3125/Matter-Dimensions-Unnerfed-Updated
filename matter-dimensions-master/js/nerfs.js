@@ -1,5 +1,5 @@
 function update_challenges_power() {
-    player.challenge_strength_1 = 256;//1000;
+    player.challenge_strength_1 = 1;//1000;
     // Photonic Challenge 7: time is 256x slower
     if (player.challenges['p7'].inC()) player.challenge_strength_1 *= 256;
     // p11: time is faster
@@ -18,7 +18,7 @@ function update_challenges_power() {
     if (player.upgrades['g12'].is_active()) player.challenge_addinfo_2 = player.upgrades['g12'].get_effect();
     
     player.challenge_strength_2 = 0.2;
-    // g11: power is increased base on unspent Gravitons
+    // g11: power is increased based on unspent Gravitons
     player.challenge_strength_2 = player.upgrades['g11'].get_effect().toInt();
     // "Controlled Reaction" experiment: production multipliers are reduced
     if (player.evolutions['b12'].is_active()) player.challenge_strength_2 *= player.experiments['controlled_reaction'].get_nerf().toInt();
