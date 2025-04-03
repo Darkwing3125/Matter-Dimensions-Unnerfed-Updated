@@ -22,9 +22,7 @@ function update_challenges_power() {
     // "Controlled Reaction" experiment: production multipliers are reduced
     if (player.evolutions['b12'].is_active()) player.challenge_strength_2 *= player.experiments['controlled_reaction'].get_nerf().toInt();
 
-    player.challenge_strength_3 = big(100);
-    // n02: slowdown of higher-tier dimensions is reduced
-    player.challenge_strength_3 = player.upgrades['n02'].get_effect();
+    player.challenge_strength_3 = big(1);
     // "Quantum Entanglement" experiment: higher dimensions are slower
     if (player.evolutions['b12'].is_active()) player.challenge_strength_3 = player.challenge_strength_3.mult(player.experiments['quantum_entanglement'].get_nerf());
 
