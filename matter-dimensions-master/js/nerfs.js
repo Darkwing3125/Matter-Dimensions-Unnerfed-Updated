@@ -81,5 +81,5 @@ function update_challenges_power() {
 
     player.challenge_strength_10 = 1;
 
-    player.challenge_strength_11 = 0.5;
+    player.challenge_strength_11 = 1;
 }
