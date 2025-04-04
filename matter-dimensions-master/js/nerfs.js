@@ -16,7 +16,6 @@ function update_challenges_power() {
     player.challenge_addinfo_2 *= player.upgrades['g10'].get_effect();
     // g12: more production is protected
     if (player.upgrades['g12'].is_active()) player.challenge_addinfo_2 *= player.upgrades['g12'].get_effect();
-    if (player.upgrades['g12'].is_active()) player.challenge_addinfo_2 /= player.upgrades['g10'].get_effect();
     
     player.challenge_strength_2 = 1;
     // "Controlled Reaction" experiment: production multipliers are reduced
