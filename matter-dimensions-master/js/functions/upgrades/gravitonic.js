@@ -239,7 +239,16 @@ functions["upg_g11_power"] = (amt) => {
 }
 functions["upg_g12_power"] = (amt) => {
     if (amt == 0) return player.upgrades['g10'].get_effect();
-    return big(4).pow(base_amt).mult(1e300);
+    let base_amt = amt;
+    // Gravitonic Challenge 8: gravitonic upgrades gain power in first 30 seconds
+    if (player.challenges['g8'].inC() && player.time_passed < 30000) base_amt = base_amt * (player.time_passed / 30000);
+    // Gravitonic Challenge 8 reward: gravitonic upgrades are 8% more powerful in the first 30 seconds
+    if (player.challenges['g8'].completed && player.time_passed < 30000) base_amt = base_amt * 1.08;
+    // Gravitonic Challenge 1 reward: gravitonic upgrades in top-left block are 10% more powerful
+    if (player.challenges['g1'].completed) base_amt = base_amt * 1.1;
+
+
+    return big(4).pow(base_amt).mult(player.upgrades['g10'].get_effect());
 }
 functions["upg_g13_power"] = (amt) => {
     let base_amt = amt;
