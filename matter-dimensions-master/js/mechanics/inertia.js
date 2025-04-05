@@ -1,9 +1,9 @@
 function inertia_gain_speed() {
-    return big(1).div(player.best_time_speed).pow(player.upgrades['INERTIA_2'].get_effect()).mult(player.upgrades['INERTIA_4'].get_effect());
+    return big(1).div(player.best_time_speed).pow(player.upgrades['INERTIA_2'].get_effect()).mult(player.upgrades['INERTIA_4'].get_effect()).mult(big(player.inertia_multiplier));
 }
 
 function inertia_loss_speed() {
-    return big(2).pow(big(player.inertia_multiplier).subtract(1)).subtract(1);
+    return big(2).pow(big(player.inertia_multiplier).subtract(1)).subtract(1).mult(big(player.inertia_multiplier));
 }
 
 function inertia_eta() {
