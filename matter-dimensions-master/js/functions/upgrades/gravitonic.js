@@ -235,7 +235,7 @@ functions["upg_g10_power"] = (amt) => {
     return big(1e300);
 }
 functions["upg_g11_power"] = (amt) => {
-    return big(0.5).add(base_gravitons.subtract(128).div(base_gravitons.add(999)).mult(0.5));
+    return big(1);
 }
 functions["upg_g12_power"] = (amt) => {
     if (amt == 0) return player.upgrades['g10'].get_effect();
