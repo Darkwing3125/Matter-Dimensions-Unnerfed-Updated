@@ -1089,7 +1089,7 @@ function processTimedelta(corrected_timedelta) {
         }
     }
 
-    // AUTO1_4: instantly gain Grations upon reset
+    // AUTO1_4: instantly gain Gravitions upon reset
     if (player.upgrades['AUTO1_4'].is_active() && player.upgrades['AUTO1_4'].enabled) {
         if (can_gravitonic()) {
             let gravitons_gained = prestige_earn_gravitons();
