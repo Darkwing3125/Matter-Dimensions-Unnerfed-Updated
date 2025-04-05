@@ -232,38 +232,14 @@ functions["upg_g01_power"] = (amt) => {
     return big(2).pow(base_reward - 1);
 }
 functions["upg_g10_power"] = (amt) => {
-    if (amt == 0) return big(1);
-    else return big(10);
+    return big(1e300);
 }
 functions["upg_g11_power"] = (amt) => {
-    let base_gravitons = player.gravitons;
-    // n06: gravitonic upgrades are based on max gravitons
-    base_gravitons = player.upgrades['n06'].get_effect();
-    // Gravitonic Challenge 8: gravitonic upgrades gain power in first 30 seconds
-    if (player.challenges['g8'].inC() && player.time_passed < 30000) base_gravitons = base_gravitons.mult(player.time_passed / 30000);
-    // Gravitonic Challenge 8 reward: gravitonic upgrades are 8% more powerful in the first 30 seconds
-    if (player.challenges['g8'].completed && player.time_passed < 30000) base_gravitons = base_gravitons.mult(1.08);
-    // Gravitonic Challenge 1 reward: gravitonic upgrades in top-left block are 10% more powerful
-    if (player.challenges['g1'].completed) base_gravitons = base_gravitons.mult(1.1);
-
-    if (amt == 0) return big(0.2);
-    if (base_gravitons.lt(8)) return base_gravitons.mult(0.01).add(0.22);
-    if (base_gravitons.lt(28)) return base_gravitons.subtract(8).mult(0.005).add(0.3);
-    if (base_gravitons.lt(128)) return base_gravitons.subtract(28).mult(0.001).add(0.4);
-    else return big(0.5).add(base_gravitons.subtract(128).div(base_gravitons.add(999)).mult(0.5));
+    return big(0.5).add(base_gravitons.subtract(128).div(base_gravitons.add(999)).mult(0.5));
 }
 functions["upg_g12_power"] = (amt) => {
     if (amt == 0) return player.upgrades['g10'].get_effect();
-
-    let base_amt = amt;
-    // Gravitonic Challenge 8: gravitonic upgrades gain power in first 30 seconds
-    if (player.challenges['g8'].inC() && player.time_passed < 30000) base_amt = base_amt * (player.time_passed / 30000);
-    // Gravitonic Challenge 8 reward: gravitonic upgrades are 8% more powerful in the first 30 seconds
-    if (player.challenges['g8'].completed && player.time_passed < 30000) base_amt = base_amt * 1.08;
-    // Gravitonic Challenge 1 reward: gravitonic upgrades in top-left block are 10% more powerful
-    if (player.challenges['g1'].completed) base_amt = base_amt * 1.1;
-
-    return big(4).pow(base_amt).mult(10);
+    return big(4).pow(base_amt).mult(1e300);
 }
 functions["upg_g13_power"] = (amt) => {
     let base_amt = amt;
