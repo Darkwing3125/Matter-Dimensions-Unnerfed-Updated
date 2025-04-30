@@ -11,7 +11,7 @@ function update_challenges_power() {
     // "Bullet Time" experiment: time is slower
     if (player.evolutions['b12'].is_active()) player.challenge_strength_1 *= player.experiments['bullet_time'].get_nerf().toInt();
 
-    player.challenge_addinfo_2 = new BigNumber(1e100);
+    player.challenge_addinfo_2 = new BigNumber(1);
     // g10: production below x10 is protected
     player.challenge_addinfo_2 *= player.upgrades['g10'].get_effect();
     // g12: more production is protected
